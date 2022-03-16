@@ -1,0 +1,25 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version '1.5.31'
+}
+
+group 'com.phorest'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib"
+    implementation "io.javalin:javalin:4.3.0"
+    implementation "org.slf4j:slf4j-simple:1.7.36"
+
+    testImplementation(platform("org.junit:junit-bom:5.8.2"))
+    testImplementation("org.junit.jupiter:junit-jupiter")
+    testImplementation("io.javalin:javalin-testtools:4.3.0")
+    testImplementation("org.assertj:assertj-core:3.22.0")
+}
+
+test {
+    useJUnitPlatform()
+}
