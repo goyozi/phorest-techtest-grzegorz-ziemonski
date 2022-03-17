@@ -1,5 +1,5 @@
 plugins {
-    id 'org.jetbrains.kotlin.jvm' version '1.5.31'
+    id 'org.jetbrains.kotlin.jvm' version '1.6.10'
 }
 
 group 'com.phorest'
@@ -13,6 +13,9 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib"
     implementation "io.javalin:javalin:4.3.0"
     implementation "org.slf4j:slf4j-simple:1.7.36"
+    implementation "org.jetbrains.exposed:exposed-core:0.37.3"
+    implementation "org.jetbrains.exposed:exposed-jdbc:0.37.3"
+    implementation "org.postgresql:postgresql:42.3.3"
 
     testImplementation(platform("org.junit:junit-bom:5.8.2"))
     testImplementation("org.junit.jupiter:junit-jupiter")
