@@ -7,3 +7,5 @@ services:
     ports:
       - "5432:5432"
     restart: always
+    volumes:
+      - ./scripts:/docker-entrypoint-initdb.d/
