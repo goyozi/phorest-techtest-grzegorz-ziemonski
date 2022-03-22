@@ -1,7 +1,4 @@
-import io.javalin.testtools.HttpClient
 import io.javalin.testtools.TestUtil.test
-import okhttp3.MediaType.Companion.toMediaType
-import okhttp3.RequestBody.Companion.toRequestBody
 import org.assertj.core.api.Assertions.assertThat
 import org.jetbrains.exposed.sql.deleteAll
 import org.jetbrains.exposed.sql.selectAll
@@ -67,13 +64,6 @@ class CsvImportTest {
         assertThat(purchase[Purchases.name]).isEqualTo(purchaseName)
         assertThat(purchase[Purchases.price]).isEqualTo(purchasePrice.setScale(2))
         assertThat(purchase[Purchases.loyaltyPoints]).isEqualTo(purchaseLoyaltyPoints)
-    }
-
-    private fun HttpClient.postCsv(path: String, csv: String) {
-        val response = request(path) {
-            it.method("POST", csv.toRequestBody("text/csv".toMediaType()))
-        }
-        assertThat(response.code).isEqualTo(200)
     }
 
     companion object {
