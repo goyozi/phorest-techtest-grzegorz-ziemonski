@@ -1,3 +1,5 @@
+package com.interview
+
 import io.javalin.plugin.json.JavalinJackson
 import io.javalin.testtools.TestUtil.test
 import org.assertj.core.api.Assertions.assertThat

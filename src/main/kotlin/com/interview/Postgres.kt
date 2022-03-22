@@ -1,3 +1,5 @@
+package com.interview
+
 import org.postgresql.jdbc.PgConnection
 import org.postgresql.util.PGobject
 import org.postgresql.util.PSQLException

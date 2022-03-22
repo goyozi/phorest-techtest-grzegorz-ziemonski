@@ -1,3 +1,5 @@
+package com.interview
+
 import org.jetbrains.exposed.sql.deleteAll
 import org.jetbrains.exposed.sql.transactions.transaction
 import org.junit.jupiter.api.AfterAll
@@ -11,6 +13,7 @@ abstract class IntegrationTest {
         @BeforeAll
         fun setUpAll() {
             connectToDatabase()
+            cleanUp()
         }
 
         @JvmStatic

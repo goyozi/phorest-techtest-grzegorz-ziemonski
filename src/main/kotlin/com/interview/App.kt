@@ -1,3 +1,5 @@
+package com.interview
+
 import io.javalin.Javalin
 import org.jetbrains.exposed.sql.Database
 import org.slf4j.Logger
