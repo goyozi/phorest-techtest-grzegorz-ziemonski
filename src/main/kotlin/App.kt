@@ -12,6 +12,8 @@ val app: Javalin
         app.post("/services") { ctx -> Services.importCsv(ctx.bodyAsInputStream()) }
         app.post("/purchases") { ctx -> Purchases.importCsv(ctx.bodyAsInputStream()) }
 
+        app.get("/clients/top", ::getTopClients)
+
         app.exception(RuntimeException::class.java) { e, ctx ->
             log.error("Runtime Exception:", e)
             ctx.status(500)

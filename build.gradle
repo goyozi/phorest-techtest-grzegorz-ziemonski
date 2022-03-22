@@ -11,8 +11,7 @@ repositories {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib"
-    implementation "io.javalin:javalin:4.3.0"
-    implementation "org.slf4j:slf4j-simple:1.7.36"
+    implementation "io.javalin:javalin-bundle:4.3.0"
     implementation "org.jetbrains.exposed:exposed-core:0.37.3"
     implementation "org.jetbrains.exposed:exposed-jdbc:0.37.3"
     implementation "org.jetbrains.exposed:exposed-java-time:0.37.3"

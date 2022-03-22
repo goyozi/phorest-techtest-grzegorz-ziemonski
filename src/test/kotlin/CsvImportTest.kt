@@ -1,10 +1,7 @@
 import io.javalin.testtools.TestUtil.test
 import org.assertj.core.api.Assertions.assertThat
-import org.jetbrains.exposed.sql.deleteAll
 import org.jetbrains.exposed.sql.selectAll
 import org.jetbrains.exposed.sql.transactions.transaction
-import org.junit.jupiter.api.AfterAll
-import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.MethodOrderer.OrderAnnotation
 import org.junit.jupiter.api.Order
 import org.junit.jupiter.api.Test
@@ -64,26 +61,5 @@ class CsvImportTest {
         assertThat(purchase[Purchases.name]).isEqualTo(purchaseName)
         assertThat(purchase[Purchases.price]).isEqualTo(purchasePrice.setScale(2))
         assertThat(purchase[Purchases.loyaltyPoints]).isEqualTo(purchaseLoyaltyPoints)
-    }
-
-    companion object {
-
-        @JvmStatic
-        @BeforeAll
-        fun setUp() {
-            connectToDatabase()
-            cleanUp()
-        }
-
-        @JvmStatic
-        @AfterAll
-        fun cleanUp() {
-            transaction {
-                Purchases.deleteAll()
-                Services.deleteAll()
-                Appointments.deleteAll()
-                Clients.deleteAll()
-            }
-        }
     }
 }

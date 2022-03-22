@@ -15,7 +15,7 @@ import java.util.UUID
 private val totalLoyaltyPoints =
     coalesce(Services.loyaltyPoints.sum() plus Purchases.loyaltyPoints.sum(), Services.loyaltyPoints.sum(), Purchases.loyaltyPoints.sum(), intLiteral(0))
 
-fun getTopClients(number: Int, since: LocalDate) = transaction {
+fun topClients(number: Int, since: LocalDate) = transaction {
     Clients.innerJoin(Appointments)
         .leftJoin(Services)
         .leftJoin(Purchases)
