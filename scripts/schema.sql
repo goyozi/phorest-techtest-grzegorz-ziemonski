@@ -10,3 +10,29 @@ CREATE TABLE clients
     gender     gender,
     banned     BOOLEAN
 );
+
+CREATE TABLE appointments
+(
+    id         UUID PRIMARY KEY,
+    client_id  UUID REFERENCES clients (id),
+    start_time TIMESTAMP WITH TIME ZONE,
+    end_time   TIMESTAMP WITH TIME ZONE
+);
+
+CREATE TABLE services
+(
+    id             UUID PRIMARY KEY,
+    appointment_id UUID REFERENCES appointments (id),
+    name           VARCHAR(255),
+    price          NUMERIC(10, 2),
+    loyalty_points INTEGER
+);
+
+CREATE TABLE purchases
+(
+    id             UUID PRIMARY KEY,
+    appointment_id UUID REFERENCES appointments (id),
+    name           VARCHAR(255),
+    price          NUMERIC(10, 2),
+    loyalty_points INTEGER
+);

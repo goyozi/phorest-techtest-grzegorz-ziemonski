@@ -15,6 +15,7 @@ dependencies {
     implementation "org.slf4j:slf4j-simple:1.7.36"
     implementation "org.jetbrains.exposed:exposed-core:0.37.3"
     implementation "org.jetbrains.exposed:exposed-jdbc:0.37.3"
+    implementation "org.jetbrains.exposed:exposed-java-time:0.37.3"
     implementation "org.postgresql:postgresql:42.3.3"
 
     testImplementation(platform("org.junit:junit-bom:5.8.2"))
