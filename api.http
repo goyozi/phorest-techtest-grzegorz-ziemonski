@@ -1,0 +1,22 @@
+### Import Clients
+POST localhost:7070/clients
+
+< src/test/resources/clients.csv
+
+### Import Appointments
+POST localhost:7070/appointments
+
+< src/test/resources/appointments.csv
+
+### Import Services
+POST localhost:7070/services
+
+< src/test/resources/services.csv
+
+### Import Purchases
+POST localhost:7070/purchases
+
+< src/test/resources/purchases.csv
+
+### Get Top Clients
+GET localhost:7070/clients/top?number=50&since=2018-01-01
