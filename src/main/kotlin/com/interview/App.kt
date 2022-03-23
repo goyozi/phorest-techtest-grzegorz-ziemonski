@@ -28,5 +28,6 @@ fun main() {
 }
 
 fun connectToDatabase() {
-    Database.connect("jdbc:postgresql:postgres", user = "postgres", password = "password")
+    val dbHost = System.getenv("DB_HOST") ?: "localhost"
+    Database.connect("jdbc:postgresql://$dbHost/postgres", user = "postgres", password = "password")
 }

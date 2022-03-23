@@ -1,5 +1,16 @@
 version: "3.9"
 services:
+  app:
+    build: .
+    environment:
+      - DB_HOST=postgres
+    ports:
+      - "7070:7070"
+    depends_on:
+      - postgres
+    profiles:
+      - app
+
   postgres:
     image: postgres:14
     environment:
