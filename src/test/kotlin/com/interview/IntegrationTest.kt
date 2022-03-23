@@ -1,11 +1,13 @@
 package com.interview
 
+import io.javalin.plugin.json.JavalinJackson
 import org.jetbrains.exposed.sql.deleteAll
 import org.jetbrains.exposed.sql.transactions.transaction
 import org.junit.jupiter.api.AfterAll
 import org.junit.jupiter.api.BeforeAll
 
 abstract class IntegrationTest {
+    val jackson = JavalinJackson()
 
     companion object {
 

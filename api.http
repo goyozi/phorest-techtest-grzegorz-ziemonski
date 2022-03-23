@@ -20,3 +20,7 @@ POST localhost:7070/purchases
 
 ### Get Top Clients
 GET localhost:7070/clients/top?number=50&since=2018-01-01
+
+### Get Single Client
+GET localhost:7070/clients/e0b8ebfc-6e57-4661-9546-328c644a3764
+

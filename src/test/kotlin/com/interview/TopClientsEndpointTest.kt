@@ -1,12 +1,10 @@
 package com.interview
 
-import io.javalin.plugin.json.JavalinJackson
 import io.javalin.testtools.TestUtil.test
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 
 class TopClientsEndpointTest : IntegrationTest() {
-    private val jackson = JavalinJackson()
 
     @Test
     fun `happy path`() = test(app) { _, http ->
