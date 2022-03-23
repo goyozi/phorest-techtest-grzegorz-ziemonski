@@ -6,7 +6,7 @@ import java.time.LocalDate
 
 fun getTopClients(ctx: Context) {
     val number = ctx.queryParamAsClass("number", Int::class.java)
-        .check({ it > 0 }, "non-positive number parameter")
+        .check({ it > 0 }, "POSITIVE_CHECK_FAILED")
         .get()
 
     val since = ctx.queryParamAsClass("since", String::class.java)

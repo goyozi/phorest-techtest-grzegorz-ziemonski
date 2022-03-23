@@ -34,7 +34,7 @@ class TopClientsEndpointTest : IntegrationTest() {
         val response = http.get("/clients/top?number=-1&since=$beforeAppointment")
 
         assertThat(response.code).isEqualTo(400)
-        assertThat(response.body!!.string()).isEqualTo("""{"number":[{"message":"non-positive number parameter","args":{},"value":-1}]}""")
+        assertThat(response.body!!.string()).isEqualTo("""{"number":[{"message":"POSITIVE_CHECK_FAILED","args":{},"value":-1}]}""")
     }
 
     @Test
@@ -42,7 +42,15 @@ class TopClientsEndpointTest : IntegrationTest() {
         val response = http.get("/clients/top?number=0&since=$beforeAppointment")
 
         assertThat(response.code).isEqualTo(400)
-        assertThat(response.body!!.string()).isEqualTo("""{"number":[{"message":"non-positive number parameter","args":{},"value":0}]}""")
+        assertThat(response.body!!.string()).isEqualTo("""{"number":[{"message":"POSITIVE_CHECK_FAILED","args":{},"value":0}]}""")
+    }
+
+    @Test
+    fun `not a number`() = test(app) { _, http ->
+        val response = http.get("/clients/top?number=NaN&since=$beforeAppointment")
+
+        assertThat(response.code).isEqualTo(400)
+        assertThat(response.body!!.string()).isEqualTo("""{"number":[{"message":"TYPE_CONVERSION_FAILED","args":{},"value":"NaN"}]}""")
     }
 
     @Test
